@@ -1,7 +1,8 @@
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
 import { useEffect, useState } from 'react';
 import VideoList from './components/video_list/video_list';
+import SearchHeader from './components/search_header/search_header';
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -19,10 +20,12 @@ function App() {
 
   }, []);
   return (
+    <div className={styles.app}>
+    <SearchHeader/>
     <VideoList videos={videos} />
+    </div>
+    
   );
 }
 
 export default App;
-
-
