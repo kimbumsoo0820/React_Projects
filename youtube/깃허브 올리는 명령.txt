@@ -1,0 +1,6 @@
+https://github.com/kimbumsoo0820/React_Projects.git
+
+git add
+git commit
+git remote add origin 주소
+git push --set-upstream origin master
