@@ -1,14 +1,31 @@
-import styles from './search_header.moudle.css';
-import React from 'react';
+import styles from './search_header.module.css';
+import React, { useRef } from 'react';
 
-const SearchHeader = (props) => {
+const SearchHeader = ({onSearch}) => {
+    const inputRef = useRef();
+
+    const handleSearch = () => {
+        const value = inputRef.current.value;
+        console.log(value);
+        onSearch(value);
+    }
+    const onClick = () => {
+        handleSearch();
+    }
+    const onKeyPress = (event) => {
+        if(event.key === 'Enter') {
+            handleSearch();
+        }
+    }
             return (
                 <header className={styles.header}>
+                    <div className={styles.logo}>
                     <img className={styles.img} src="/images/logo.png" alt="logo" />
                     <h1 className={styles.title} >Youtube</h1>
-                    <input className={styles.input} type="search" placeholder="Search..." />
-                    <button className={styles.button} type="submit">
-                        <img src="images/search.png"/>
+                    </div>
+                    <input ref={inputRef} className={styles.input} type="search" placeholder="Search..." onKeyPress ={onKeyPress}/>
+                    <button className={styles.button} type="submit" onClick={onClick}>
+                        <img className={styles.buttonImg} src="images/search.png" alt="search"/>
                     </button>
                 </header>
             );
