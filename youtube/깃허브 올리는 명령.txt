@@ -4,3 +4,5 @@ git add
 git commit
 git remote add origin 주소
 git push --set-upstream origin master
+
+변경을 해보자
